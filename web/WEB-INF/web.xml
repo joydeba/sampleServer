@@ -51,4 +51,23 @@
         <extension>wsdl</extension>
         <mime-type>text/xml</mime-type>
     </mime-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected</web-resource-name>
+            <!-- specify the directory for restricted web Services application -->
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <!-- specify the role name of the new user added in step 2 -->
+            <role-name>wsuser</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Define the Login Configuration for this Application -->
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Protected Web Services</realm-name>
+    </login-config>
+
 </web-app>
